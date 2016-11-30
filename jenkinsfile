@@ -24,7 +24,7 @@ node{
   stage('deploy_to_Artifactory'){
     def buildInfo = Artifactory.newBuildInfo()
     buildInfo.setName "file_git_jenkins_artifactory"
-    def server = Artifactory.server 'artifactory'
+    def server = Artifactory.server 'art1'
     server.upload spec: uploadSpec, buildInfo: buildInfo
     server.publishBuildInfo buildInfo
     echo 'deploy to artifactory done'
