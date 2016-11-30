@@ -11,8 +11,7 @@ node{
     echo 'generate file done'
   }
   stage('generate_uploadspecs'){
-    def uploadSpec = {"files": [{"pattern":"file_git_jenkins_artifactory","target":"Generic-Pruebas"}]
-  }
+    def uploadSpec = {"files":[{"pattern":"file_git_jenkins_artifactory","target":"Generic-Pruebas"}]}
     echo 'generate_uploadspecs done'
   }
   stage('deploy_to_Artifactory'){
