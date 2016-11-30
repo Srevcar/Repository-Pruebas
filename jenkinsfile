@@ -1,0 +1,29 @@
+#!groovy
+import hudson.*
+import hudson.model.*
+import jenkins.*
+import jenkins.model.*
+
+node('docker'){
+  stage('generate_file'){
+    sh 'touch file_git_jenkins_artifactory'
+    sh 'ls'
+  }
+  stage('generate_uploadspecs'){
+    def uploadSpec = """{
+      "files": [
+        {
+          "pattern":"file_git_jenkins_artifactory",
+          "target":"Generic-Pruebas"
+        }
+      ]
+    }"""
+  }
+  stage('deploy_to_Artifactory'){
+    def buildInfo = Artifactory,newBuildInfo()
+    builInfo.setName "file_git_jenkins_artifactory"
+    def server = Artifactory.server 'artifactory'
+    server.upload spec: uploadSpec, buildInfo: buildInfo
+    server.publishBuildInfo buildInfo
+  }
+}
