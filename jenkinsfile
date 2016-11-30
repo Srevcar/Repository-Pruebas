@@ -4,7 +4,7 @@ import hudson.model.*
 import jenkins.*
 import jenkins.model.*
 
-node('docker'){
+node{
   stage('generate_file'){
     sh 'touch file_git_jenkins_artifactory'
     sh 'ls'
