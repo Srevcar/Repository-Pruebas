@@ -20,7 +20,7 @@ node('docker'){
     }"""
   }
   stage('deploy_to_Artifactory'){
-    def buildInfo = Artifactory,newBuildInfo()
+    def buildInfo = Artifactory.newBuildInfo()
     builInfo.setName "file_git_jenkins_artifactory"
     def server = Artifactory.server 'artifactory'
     server.upload spec: uploadSpec, buildInfo: buildInfo
