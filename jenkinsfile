@@ -18,8 +18,6 @@ node{
                                   }]
                         }"""
     echo 'generate_uploadspecs done'
-  }
-  stage('deploy_to_Artifactory'){
     def buildInfo = Artifactory.newBuildInfo()
     buildInfo.setName "file_git_jenkins_artifactory"
     def server = Artifactory.server 'art1'
