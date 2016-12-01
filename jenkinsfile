@@ -21,7 +21,7 @@ node{
     def buildInfo = Artifactory.newBuildInfo()
     buildInfo.setName "file_git_jenkins_artifactory"
     def server = Artifactory.server 'art1'
-    server.uploadSpec: uploadSpec, buildInfo: buildInfo
+    server.uploadspec: uploadSpec, buildInfo: buildInfo
     server.publishBuildInfo buildInfo
     echo 'deploy to artifactory done'
   }
