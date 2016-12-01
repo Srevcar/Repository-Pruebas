@@ -10,7 +10,7 @@ node{
     sh 'ls'
     echo 'generate file done'
   }
-  stage('generate_uploadspecs'){
+  stage('deploy_to_artifactory'){
     def uploadSpec = """{
                           "files":[{
                                     "pattern":"file_git_jenkins_artifactory",
